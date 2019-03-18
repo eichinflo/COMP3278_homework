@@ -51,24 +51,21 @@ echo "</tr>";
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-echo "<tr>";
-echo "<td>".$row['transactionID']."</td>";
-echo "<td>".$row['date']."</td>";
-echo "<td>".$row['amount']."</td>";
-if($row['merchantName'] == NULL) {
-echo "<td><a href='q7.php?userID=".$row['transferTo_userID']."'>".$row['receiver']."</a></td>";  
-} else {
-echo "<td><a href='q9.php?merchantID=".$row['merchantID']."'>".$row['merchantName']." ".$row['location']."</a></td>"; 
-}
-
+    echo "<tr>";
+    echo "<td>".$row['transactionID']."</td>";
+    echo "<td>".$row['date']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    if($row['merchantName'] == NULL) {
+        echo "<td><a href='q7.php?userID=".$row['transferTo_userID']."'>".$row['receiver']."</a></td>";  
+    } else {
+        echo "<td><a href='q9.php?merchantID=".$row['merchantID']."'>".$row['merchantName']." ".$row['location']."</a></td>"; 
+    }
 echo "</tr>";
 }
-
 
 echo "</table>";
 echo "</body>";
 echo "</html>";
-
 
 mysqli_close($con);
 ?>
